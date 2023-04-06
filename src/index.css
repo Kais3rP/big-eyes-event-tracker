@@ -1,13 +1,79 @@
+@font-face {
+  font-family: "CartoonShine";
+  src: local("CartoonShine"),
+    url("assets/fonts/CartoonShine.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "CartoonShadow";
+  src: local("CartoonShadow"),
+    url("assets/fonts/CartoonShadow.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "Gretoon";
+  src: local("Gretoon"),
+    url("assets/fonts/GretoonHighlight.ttf") format("opentype");
+}
+
+:root {
+  --pink1: #f8c0c6;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--pink1);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Set font size for responsivity */
+
+@media Screen and (max-width: 640) {
+  html,
+  body {
+    font-size: 14px !important;
+  }
+}
+
+@media Screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 16px !important;
+  }
+}
+
+@media Screen and (max-width: 1024px) {
+  html,
+  body {
+    font-size: 18px !important;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0px !important;
+  height: 0px !important;
+  background-color: transparent !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar-track {
+  width: 0px !important;
+  height: 0px !important;
+  background-color: transparent !important;
+}
+
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  width: 0px !important;
+  height: 0px !important;
+  background-color: transparent !important;
 }
