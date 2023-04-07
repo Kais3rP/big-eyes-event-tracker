@@ -1,9 +1,10 @@
-import logo from "assets/logo.svg";
 import styles from "components/style.module.css";
 import { useWindowSize } from "hooks";
-import Window from "./Window/Window";
+import Window from "components/Window/Window";
+import Header from "components/Header/Header";
 import { useEffect } from "react";
 import { events } from "data";
+import Footer from "components/Footer/Footer";
 
 function App() {
   const { width } = useWindowSize();
@@ -16,26 +17,11 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <img src={logo} alt="" className={styles.logo} />
-      <div className={styles.logoCaption}>
-        {" "}
-        <div>
-          Unofficial Events Tracker for{" "}
-          <a
-            href="https://bigeyes.space/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            $BIG EYES
-          </a>
-          Token
-        </div>
-      </div>
-
-      <div className={styles.clock}></div>
+      <Header />
       {events.map((event) => (
         <Window key={event.label} event={event} width={width} />
       ))}
+      <Footer />
     </div>
   );
 }

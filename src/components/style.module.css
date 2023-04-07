@@ -6,17 +6,3 @@
   font-family: chalice;
   font-weight: 100;
 }
-
-.logo {
-  width: 10rem;
-  height: 10rem;
-}
-
-.logoCaption {
-  font-size: min(2vw, 1rem);
-  text-shadow: 3px 3px 25px #000000;
-}
-
-.logoCaption a {
-  margin: 0px 5px 0px 5px;
-}

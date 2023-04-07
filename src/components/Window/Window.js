@@ -20,13 +20,17 @@ const Window = React.memo(({ width, event }) => {
   const counterRef = useRef();
   const windowRef = useRef();
   const ringbellRef = useRef();
+  const modalRef = useRef();
 
   /* state */
 
   const [duration, setduration] = useState({});
-  const [toggleCounter, settoggleCounter] = useState(false);
+  const [isCounterVisible, setisCounterVisible] = useState(false);
+  const [modal, setModal] = useState({ visible: false, title: "", body: "" });
 
   /* Effects */
+
+  /* Handle the counter */
 
   useEffect(() => {
     /* Do not start counters of terminated events */
@@ -54,22 +58,40 @@ const Window = React.memo(({ width, event }) => {
     return () => clearInterval(interval);
   }, [event, isAlertOn]);
 
+  /* Handle the visual toggle between the banner image and the counter */
+
   useEffect(() => {
     setTimeout(() => {
-      if (toggleCounter) counterRef.current.style.zIndex = 1;
+      if (isCounterVisible) counterRef.current.style.zIndex = 1;
       else counterRef.current.style.zIndex = -1;
     }, 200);
-  }, [toggleCounter]);
+  }, [isCounterVisible]);
+
+  /* Handle the modal animation */
+
+  useEffect(() => {
+    if (!modal.title || !modal.body) return;
+    gsap
+      .timeline()
+      .to(modalRef.current, { opacity: 1, zIndex:10, duration: 0.5, ease: "linear" })
+      .to(modalRef.current, { opacity: 0, zIndex:0, duration: 0.5 }, ">+=2");
+  }, [modal]);
 
   /* Handlers */
 
   const handlePointerUp = () => {
-    settoggleCounter((b) => !b);
+    setisCounterVisible((b) => !b);
     askForNotificationsAllow();
   };
 
   const handleAlert = () => {
     toggleAlert(event.id);
+    setModal({
+      title: `Notifications`,
+      body: `You ${
+        isAlertOn ? "deactivated" : "activated"
+      } the notifications for this event.`,
+    });
   };
 
   const banner = width <= 1024 ? event.banner.mobile : event.banner.desktop;
@@ -81,13 +103,17 @@ const Window = React.memo(({ width, event }) => {
         src={banner}
         alt=""
         style={{
-          opacity: toggleCounter ? 0 : 1,
-          cursor: toggleCounter ? "default" : "pointer",
+          opacity: isCounterVisible ? 0 : 1,
+          cursor: isCounterVisible ? "default" : "pointer",
         }}
         className={styles.banner}
         onPointerUp={handlePointerUp}
       />
       <div className={styles.counter} ref={counterRef}>
+        <div className={styles.modal} ref={modalRef}>
+          <h1>{modal.title}</h1>
+          <h2>{modal.body}</h2>
+        </div>
         <div className={styles.iconsContainer}>
           <div
             className={styles.icon}
