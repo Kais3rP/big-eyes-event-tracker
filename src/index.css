@@ -1,23 +1,26 @@
 @font-face {
-  font-family: "CartoonShine";
-  src: local("CartoonShine"),
-    url("assets/fonts/CartoonShine.ttf") format("opentype");
-}
-
-@font-face {
-  font-family: "CartoonShadow";
-  src: local("CartoonShadow"),
-    url("assets/fonts/CartoonShadow.ttf") format("opentype");
-}
-
-@font-face {
   font-family: "Gretoon";
   src: local("Gretoon"),
     url("assets/fonts/GretoonHighlight.ttf") format("opentype");
 }
 
+@font-face {
+  font-family: "Repet";
+  src: local("Repet"), url("assets/fonts/repet.ttf") format("opentype");
+}
+
+@font-face {
+  font-family: "chalice";
+  src: local("chalice"), url("assets/fonts/chalice.ttf") format("opentype");
+}
+
 :root {
   --pink1: #f8c0c6;
+  --green1: #b3f069;
+  --white1: antiquewhite;
+  --violet1: #dd7eee;
+  --pink2: #ee7ea7;
+  --orange1: #eebd7e;
 }
 
 body {
@@ -76,4 +79,14 @@ body {
   width: 0px !important;
   height: 0px !important;
   background-color: transparent !important;
+}
+
+a {
+  color: var(--orange1);
+}
+
+a:hover {
+  transform: scale(2);
+  transition: all 0.1s ease-out;
+  color: var(--white1);
 }

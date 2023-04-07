@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--pink1);
+  border-radius: 1.75rem;
+  display: flex;
+  align-items: center;
+  border: 0.25rem solid #fff;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  font-family: chalice;
+  font-weight: 100;
+  cursor: pointer;
+  will-change: background-color;
+  transition: all 0.2s linear;
+}
+
+.container:hover {
+  background-color: var(--white1);
+  color: #000;
+}

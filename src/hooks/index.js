@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { askForNotificationsAllow } from "utils";
 
 export const useWindowSize = () => {
   const [windowSize, setwindowSize] = useState({});
@@ -18,4 +19,42 @@ export const useWindowSize = () => {
   }, [setwindowSize]);
 
   return windowSize;
+};
+
+const useLocalStorage = (key) => {
+  const [storedValue, setStoredValue] = useState(() => {
+    if (typeof window === "undefined")
+      throw Error(
+        "You can't use local storage in an environment different from a browser."
+      );
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : null;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  });
+
+  const setValue = (value) => {
+    if (typeof window === "undefined")
+      throw Error(
+        "You can't use local storage in an environment different from a browser."
+      );
+    try {
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value;
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      setStoredValue(valueToStore);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return [storedValue, setValue];
+};
+
+export const useNotifications = () => {
+  useEffect(() => {
+    askForNotificationsAllow();
+  }, []);
 };
