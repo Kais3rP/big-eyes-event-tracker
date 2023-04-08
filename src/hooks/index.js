@@ -21,7 +21,7 @@ export const useWindowSize = () => {
   return windowSize;
 };
 
-const useLocalStorage = (key) => {
+/* const useLocalStorage = (key) => {
   const [storedValue, setStoredValue] = useState(() => {
     if (typeof window === "undefined")
       throw Error(
@@ -51,7 +51,7 @@ const useLocalStorage = (key) => {
     }
   };
   return [storedValue, setValue];
-};
+}; */
 
 export const useNotifications = () => {
   useEffect(() => {

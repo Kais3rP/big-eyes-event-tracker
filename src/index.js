@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "components/App";
-import reportWebVitals from "./reportWebVitals";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as serviceWorkerRegistration from "serviceWorkerRegistration";
