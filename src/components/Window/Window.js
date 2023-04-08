@@ -8,13 +8,13 @@ import { BsBellFill, BsBellSlashFill } from "react-icons/bs";
 import ringbell from "assets/audio/bell.wav";
 import { askForNotificationsAllow, notify } from "utils";
 import Modal from "components/Modal/Modal";
-import { useModal } from "components/Modal/hooks";
+import { useFadingModal } from "components/Modal/hooks";
 
 const Window = React.memo(({ width, event }) => {
   /* hooks */
 
   const { toggleAlert, alerts, markEventCompleted } = useStore();
-  const { modalRef, modal, setModal } = useModal();
+  const { modalRef, modal, setModal } = useFadingModal();
   const isAlertOn = useMemo(() => alerts[event.id], [alerts, event.id]);
 
   /* refs */
@@ -48,8 +48,9 @@ const Window = React.memo(({ width, event }) => {
           notify(`Big Eyes event: "${event.label}" is starting right now!`, {
             body: `Go to ${event.target} to partecipate.`,
             requireInteraction: true,
-            image: "https://bigeyes.space/img/logo-desktop-header.svg",
-            icon: "https://bigeyes.space/img/logo-desktop-header.svg",
+            image: "/big.webp",
+            icon: "/big.webp",
+            vibrate: [200, 100, 200],
           });
         }
         return clearInterval(interval);
@@ -83,10 +84,10 @@ const Window = React.memo(({ width, event }) => {
     if (event.completed) return;
     toggleAlert(event.id);
     setModal({
-      title: `Notifications`,
+      title: `Audio Alert`,
       body: `You ${
         isAlertOn ? "deactivated" : "activated"
-      } the notifications for this event.`,
+      } the audio alert for this event.`,
     });
   };
 

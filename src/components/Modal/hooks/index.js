@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 
-export const useModal = () => {
+export const useFadingModal = () => {
   const modalRef = useRef();
   const [modal, setModal] = useState({ visible: false, title: "", body: "" });
   useEffect(() => {

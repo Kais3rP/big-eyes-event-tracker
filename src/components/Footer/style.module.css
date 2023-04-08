@@ -9,6 +9,15 @@
   font-size: 1rem;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: max(60%, 300px);
+  text-align: center;
+}
+
 .icon {
   font-size: 3rem;
   width: 5rem;

@@ -16,6 +16,13 @@ export const notify = (title, options) => {
     return console.log(
       "Can't send a notification, the notifications are disabled on this site"
     );
-  if (Notification.permission === "granted")
-    return new Notification(title, options);
+  if (Notification.permission === "granted") {
+    const notification = new Notification(title, options);
+    notification.onclick = (event) => {
+      event.preventDefault(); // prevent the browser from focusing the Notification's tab
+      window.open("http://www.mozilla.org", "_blank");
+    };
+
+    return notification;
+  }
 };

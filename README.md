@@ -1,70 +1,183 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <img src="big.webp" alt="logo" width="200" height="auto" />
+  <h1>Big Eyes Unofficial Event Tracker</h1>
+  
+  <p>
+    A usefult event tracker for the <a href="https://bigeyes.space/">
+   Big Eyes
+  </a> project.
+  </p>
+  
+  
+<!-- Badges -->
+<p>
+  <a href="https://github.com/Kais3rP/big-eyes-event-tracker/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/Kais3rP/big-eyes-event-tracker" alt="contributors" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/github/last-commit/Kais3rP/big-eyes-event-tracker" alt="last update" />
+  </a>
+  <a href="https://github.com/Kais3rP/big-eyes-event-tracker/network/members">
+    <img src="https://img.shields.io/github/forks/Kais3rP/big-eyes-event-tracker" alt="forks" />
+  </a>
+  <a href="https://github.com/Kais3rP/big-eyes-event-tracker/stargazers">
+    <img src="https://img.shields.io/github/stars/Kais3rP/big-eyes-event-tracker" alt="stars" />
+  </a>
+  <a href="https://github.com/Kais3rP/big-eyes-event-tracker/issues/">
+    <img src="https://img.shields.io/github/issues/Kais3rP/big-eyes-event-tracker" alt="open issues" />
+  </a>
+  <a href="https://github.com/Kais3rP/big-eyes-event-tracker/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/Kais3rP/big-eyes-event-tracker.svg" alt="license" />
+  </a>
+</p>
+   
+<h4>
+    <a href="https://github.com/Kais3rP/big-eyes-event-tracker/issues/">Report Bug</a>
+  <span> · </span>
+    <a href="https://github.com/Kais3rP/big-eyes-event-tracker/issues/">Request Feature</a>
+  </h4>
+</div>
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+<!-- Table of Contents -->
 
-### `yarn start`
+# :notebook_with_decorative_cover: Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [About the Project](#star2-about-the-project)
+  - [Tech Stack](#space_invader-tech-stack)
+  - [Features](#dart-features)
+- [Getting Started](#toolbox-getting-started)
+  - [Prerequisites](#bangbang-prerequisites)
+  - [Installation](#gear-installation)
+  - [Running Tests](#test_tube-running-tests)
+  - [Run Locally](#running-run-locally)
+- [Usage](#eyes-usage)
+- [Contributing](#wave-contributing)
+  - [Code of Conduct](#scroll-code-of-conduct)
+- [FAQ](#grey_question-faq)
+- [License](#warning-license)
+- [Contact](#handshake-contact)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- About the Project -->
 
-### `yarn test`
+## :star2: About the Project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- TechStack -->
 
-### `yarn build`
+### :space_invader: Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+  </ul>
+</details>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- Features -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### :dart: Features
 
-### `yarn eject`
+- Feature 1
+- Feature 2
+- Feature 3
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<!-- Getting Started -->
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :toolbox: Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- Prerequisites -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### :bangbang: Prerequisites
 
-## Learn More
+This project uses Yarn as package manager
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+ npm install --global yarn
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- Installation -->
 
-### Code Splitting
+### :gear: Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install my-project with npm
 
-### Analyzing the Bundle Size
+```bash
+  yarn install my-project
+  cd my-project
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- Running Tests -->
 
-### Making a Progressive Web App
+### :test_tube: Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+To run tests, run the following command
 
-### Advanced Configuration
+```bash
+  yarn test test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<!-- Run Locally -->
 
-### Deployment
+### :running: Run Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Clone the project
 
-### `yarn build` fails to minify
+```bash
+  git clone https://github.com/Kais3rP/big-eyes-event-tracker.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  yarn install
+```
+
+Start the server
+
+```bash
+  yarn start
+```
+
+<!-- Contributing -->
+
+## :wave: Contributing
+
+<a href="https://github.com/Kais3rP/big-eyes-event-tracker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Kais3rP/big-eyes-event-tracker" />
+</a>
+
+Contributions are always welcome!
+
+See `CONTRIBUTING.md` for ways to get started.
+
+<!-- Code of Conduct -->
+
+### :scroll: Code of Conduct
+
+Please read the [Code of Conduct](https://github.com/Kais3rP/big-eyes-event-tracker/blob/master/CODE_OF_CONDUCT.md)
+
+<!-- FAQ -->
+
+## :grey_question: FAQ
+
+- Question 1
+
+  - Answer 1
+
+- Question 2
+
+  - Answer 2
+
+<!-- License -->
+
+## :warning: License
+
+Distributed under the no License. See LICENSE.txt for more information.

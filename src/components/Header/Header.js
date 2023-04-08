@@ -11,6 +11,9 @@ const Header = () => {
     <header className={styles.container}>
       <img src={logo} alt="" className={styles.logo} />
       <div className={styles.logoCaption}>
+        {/*     <div className={styles.clock}>
+          <Clock value={value} size={"min(100px,20vmin)"} />
+        </div> */}
         <div>
           Unofficial Events Tracker for
           <a
@@ -22,9 +25,6 @@ const Header = () => {
           </a>
           Token
         </div>
-      </div>
-      <div className={styles.clock}>
-        <Clock value={value} size={"min(100px,20vmin)"} />
       </div>
     </header>
   );

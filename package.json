@@ -1,6 +1,7 @@
 {
-  "name": "big-countdown",
-  "version": "0.1.0",
+  "name": "big.eyes-event-tracker",
+  "repository": "https://github.com/Kais3rP/big-eyes-event-tracker",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",

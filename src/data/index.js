@@ -3,20 +3,20 @@ import launchBannerMobile from "assets/presale_end_mobile.webp";
 import amaBanner from "assets/ama.jpeg";
 import amaBannerMobile from "assets/ama_mobile.jpeg";
 
-const now = new Date();
-now.setSeconds(now.getSeconds() + 5);
+const dummyEndDate = new Date();
+dummyEndDate.setSeconds(dummyEndDate.getSeconds() + 5);
 
 export const events = [
-  {
+  /*   {
     id: 1,
     label: "Dummy test",
     banner: { desktop: launchBanner, mobile: launchBannerMobile },
     Overlay: null,
     endDateLabel: "",
-    endDate: now,
+    endDate: dummyEndDate,
     target: "https://bigeyes.space/",
-  },
-/*   {
+  }, */
+  {
     id: 2,
     label: "Launch date",
     banner: { desktop: launchBanner, mobile: launchBannerMobile },
@@ -33,7 +33,7 @@ export const events = [
     endDateLabel: "Thursday, 6th of April at 14:00 (UTC+0)",
     endDate: new Date(2023, 3, 6, 14, 0), // months are 0 indexed
     target: "https://t.me/BIGEYESOFFICIAL",
-  }, */
+  },
 ].map((e) => ({ ...e, completed: e.endDate <= new Date() }));
 
 // Mark the completed events on page load

@@ -86,7 +86,7 @@ a {
 }
 
 a:hover {
-  transform: scale(2);
+  transform: scale(1.1);
   transition: all 0.1s ease-out;
   color: var(--white1);
 }
