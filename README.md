@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="big.webp" alt="logo" width="200" height="auto" />
+  <img src="src/assets/big.webp" alt="logo" width="200" height="auto" />
   <h1>Big Eyes Unofficial Event Tracker</h1>
   
   <p>
