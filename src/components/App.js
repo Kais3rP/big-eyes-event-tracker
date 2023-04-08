@@ -2,21 +2,17 @@ import styles from "components/style.module.css";
 import { useWindowSize } from "hooks";
 import Window from "components/Window/Window";
 import Header from "components/Header/Header";
-import { useEffect } from "react";
-import { events } from "data";
 import Footer from "components/Footer/Footer";
+import { useStore } from "store";
+import IntroModal from "components/IntroModal/IntroModal";
 
 function App() {
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    window.addEventListener("notificationclick", (e) => {
-      console.log(e);
-    });
-  }, []);
+  const { events } = useStore();
 
   return (
     <div className={styles.container}>
+      <IntroModal />
       <Header />
       {events.map((event) => (
         <Window key={event.label} event={event} width={width} />

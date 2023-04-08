@@ -1,0 +1,32 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 200;
+  text-align: center;
+}
+
+.modal {
+  top: 50% !important;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal em {
+  margin: 0px 5px 0px 5px;
+  color: var(--orange1);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.buttonsContainer button {
+  margin: 10px 10px 0px 10px;
+  background-color: var(--orange1);
+}

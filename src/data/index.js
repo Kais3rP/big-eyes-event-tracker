@@ -16,7 +16,7 @@ export const events = [
     endDate: now,
     target: "https://bigeyes.space/",
   },
-  {
+/*   {
     id: 2,
     label: "Launch date",
     banner: { desktop: launchBanner, mobile: launchBannerMobile },
@@ -33,5 +33,7 @@ export const events = [
     endDateLabel: "Thursday, 6th of April at 14:00 (UTC+0)",
     endDate: new Date(2023, 3, 6, 14, 0), // months are 0 indexed
     target: "https://t.me/BIGEYESOFFICIAL",
-  },
-];
+  }, */
+].map((e) => ({ ...e, completed: e.endDate <= new Date() }));
+
+// Mark the completed events on page load

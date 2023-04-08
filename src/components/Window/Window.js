@@ -7,11 +7,14 @@ import { useStore } from "store";
 import { BsBellFill, BsBellSlashFill } from "react-icons/bs";
 import ringbell from "assets/audio/bell.wav";
 import { askForNotificationsAllow, notify } from "utils";
+import Modal from "components/Modal/Modal";
+import { useModal } from "components/Modal/hooks";
 
 const Window = React.memo(({ width, event }) => {
   /* hooks */
 
-  const { toggleAlert, alerts } = useStore();
+  const { toggleAlert, alerts, markEventCompleted } = useStore();
+  const { modalRef, modal, setModal } = useModal();
   const isAlertOn = useMemo(() => alerts[event.id], [alerts, event.id]);
 
   /* refs */
@@ -20,27 +23,26 @@ const Window = React.memo(({ width, event }) => {
   const counterRef = useRef();
   const windowRef = useRef();
   const ringbellRef = useRef();
-  const modalRef = useRef();
 
   /* state */
 
   const [duration, setduration] = useState({});
   const [isCounterVisible, setisCounterVisible] = useState(false);
-  const [modal, setModal] = useState({ visible: false, title: "", body: "" });
 
   /* Effects */
 
   /* Handle the counter */
 
   useEffect(() => {
+    // Need to convert back to Date instance since zustand serializes it when persisting it
+    const endDate = new Date(event.endDate);
     /* Do not start counters of terminated events */
-    if (event.endDate <= new Date())
-      return setduration((d) => ({ ...d, completed: true }));
+    if (event.completed) return;
     /* Counter init */
     const interval = setInterval(() => {
       const startDate = new Date();
-      if (event.endDate <= startDate) {
-        setduration((d) => ({ ...d, completed: true }));
+      if (endDate <= startDate) {
+        markEventCompleted(event.id);
         if (isAlertOn) {
           ringbellRef.current.play();
           notify(`Big Eyes event: "${event.label}" is starting right now!`, {
@@ -52,11 +54,12 @@ const Window = React.memo(({ width, event }) => {
         }
         return clearInterval(interval);
       }
-      setduration(intervalToDuration({ start: startDate, end: event.endDate }));
+
+      setduration(intervalToDuration({ start: startDate, end: endDate }));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [event, isAlertOn]);
+  }, [event, isAlertOn, markEventCompleted]);
 
   /* Handle the visual toggle between the banner image and the counter */
 
@@ -69,22 +72,15 @@ const Window = React.memo(({ width, event }) => {
 
   /* Handle the modal animation */
 
-  useEffect(() => {
-    if (!modal.title || !modal.body) return;
-    gsap
-      .timeline()
-      .to(modalRef.current, { opacity: 1, zIndex:10, duration: 0.5, ease: "linear" })
-      .to(modalRef.current, { opacity: 0, zIndex:0, duration: 0.5 }, ">+=2");
-  }, [modal]);
-
   /* Handlers */
 
   const handlePointerUp = () => {
     setisCounterVisible((b) => !b);
-    askForNotificationsAllow();
   };
 
   const handleAlert = () => {
+    console.log(event.completed);
+    if (event.completed) return;
     toggleAlert(event.id);
     setModal({
       title: `Notifications`,
@@ -110,23 +106,14 @@ const Window = React.memo(({ width, event }) => {
         onPointerUp={handlePointerUp}
       />
       <div className={styles.counter} ref={counterRef}>
-        <div className={styles.modal} ref={modalRef}>
-          <h1>{modal.title}</h1>
-          <h2>{modal.body}</h2>
-        </div>
+        <Modal title={modal.title} body={modal.body} ref={modalRef} />
         <div className={styles.iconsContainer}>
-          <div
-            className={styles.icon}
-            style={{
-              transform: `scale(${isAlertOn ? 1.1 : 1})`,
-            }}
-            onPointerDown={handleAlert}
-          >
+          <div className={styles.icon} onPointerDown={handleAlert}>
             {isAlertOn ? <BsBellFill /> : <BsBellSlashFill />}
           </div>
         </div>
         <Button className={styles.closeButton} onPointerUp={handlePointerUp}>
-          &times;
+          <h2>&times;</h2>
         </Button>
         {event.Overlay && event.Overlay()}
         <div className={styles.infoContainer}>
@@ -135,7 +122,7 @@ const Window = React.memo(({ width, event }) => {
         </div>
         <div className={styles.countdownContainer}>
           <div className={styles.durationContainer}>
-            {duration.completed ? (
+            {event.completed ? (
               <div className={styles.durationNumbers}>TERMINATED</div>
             ) : (
               <>
