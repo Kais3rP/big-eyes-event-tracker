@@ -2,8 +2,7 @@ import styles from "./style.module.css";
 import Modal from "components/Modal/Modal";
 import Button from "components/Button/Button";
 import { useUIStore } from "store";
-import { useEffect, useMemo, useRef } from "react";
-import gsap from "gsap";
+import { useRef } from "react";
 import { useStore } from "store";
 
 const IntroModal = () => {
@@ -28,7 +27,7 @@ const IntroModal = () => {
     hideIntroModal();
   };
 
-/* 
+  /* 
 notificationStatus can be:
 1- granted
 2- denied

@@ -1,12 +1,11 @@
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import styles from "components/Window/style.module.css";
 import { intervalToDuration } from "date-fns";
-import gsap from "gsap";
 import Button from "components/Button/Button";
 import { useStore } from "store";
 import { BsBellFill, BsBellSlashFill } from "react-icons/bs";
 import ringbell from "assets/audio/bell.wav";
-import { askForNotificationsAllow, notify } from "utils";
+import { notify } from "utils";
 import Modal from "components/Modal/Modal";
 import { useFadingModal } from "components/Modal/hooks";
 
